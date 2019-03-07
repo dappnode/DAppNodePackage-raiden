@@ -1,0 +1,7 @@
+version: '3.4'
+services:
+    raiden.public.dappnode.eth:
+        image: 'raiden.public.dappnode.eth:0.0.1'
+        build: ./build
+        ports:
+            - '5001'
