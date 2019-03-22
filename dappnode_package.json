@@ -10,6 +10,9 @@
     "size": "",
     "restart": "always",
     "ports": [],
+    "volumes": [
+      "data:/home/raiden/"
+    ],
     "environment": [
     "RAIDEN_ADDRESS="
     ],
