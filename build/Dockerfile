@@ -42,8 +42,9 @@ RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases
 
 RUN addgroup -S raiden && adduser -S raiden -G raiden
 USER raiden
+WORKDIR /home/raiden
 RUN mkdir /home/raiden/keystore
 
-CMD raiden --accept-disclaimer --environment-type production --eth-rpc-endpoint http://my.ethchain.dnp.dappnode.eth:8454 --keystore-path /home/raiden/keystore --address $RAIDEN_ADDRESS
+CMD raiden --accept-disclaimer --environment-type production --eth-rpc-endpoint http://my.ethchain.dnp.dappnode.eth:8545 --keystore-path /home/raiden/keystore --address $RAIDEN_ADDRESS --password-file password
 
 
