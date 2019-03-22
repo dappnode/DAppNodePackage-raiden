@@ -9,9 +9,7 @@
     "hash": "",
     "size": "",
     "restart": "always",
-    "ports": [
-      "5001"
-    ],
+    "ports": [],
     "keywords": [
       "Raiden",
       "Ethereum"
