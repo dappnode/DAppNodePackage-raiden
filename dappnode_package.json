@@ -10,6 +10,9 @@
     "size": "",
     "restart": "always",
     "ports": [],
+    "environment": [
+    "RAIDEN_ADDRESS="
+    ],
     "keywords": [
       "Raiden",
       "Ethereum"

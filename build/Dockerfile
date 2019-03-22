@@ -45,6 +45,6 @@ USER raiden
 WORKDIR /home/raiden
 RUN mkdir /home/raiden/keystore
 
-CMD raiden --accept-disclaimer --environment-type production --eth-rpc-endpoint http://my.ethchain.dnp.dappnode.eth:8545 --keystore-path /home/raiden/keystore --address $RAIDEN_ADDRESS --password-file password
+CMD raiden --accept-disclaimer --environment-type production --api-address 0.0.0.0:80 --eth-rpc-endpoint http://my.ethchain.dnp.dappnode.eth:8545 --keystore-path /home/raiden/keystore --address $RAIDEN_ADDRESS --password-file password
 
 
