@@ -2,14 +2,18 @@ FROM alpine:latest
 
 ENV RAIDEN_VERSION 0.100.2
 ENV LANG en_US.UTF-8
-ENV RAIDEN_RPC http://my.ethchain.dnp.dappnode.eth:8545
+ENV RAIDEN_ACCEPT_DISCLAIMER=True
+ENV RAIDEN_ENVIRONMENT_TYPE=production
+ENV RAIDEN_API_ADDRESS=0.0.0.0:80
+ENV RAIDEN_ETH_RPC_ENDPOINT=http://my.ethchain.dnp.dappnode.eth:8545
+ENV RAIDEN_KEYSTORE_PATH=/root/.raiden/keystore
+ENV RAIDEN_PASSWORD_FILE=/root/.raiden/password
 
-RUN apk update && apk add --no-cache wget libcap
+RUN apk update && apk add --no-cache wget
 
 RUN wget https://github.com/raiden-network/raiden/releases/download/v${RAIDEN_VERSION}/raiden-v${RAIDEN_VERSION}-linux-x86_64.tar.gz \
     -qO- | tar -C /usr/bin -xzvf -
 RUN mv /usr/bin/raiden-v${RAIDEN_VERSION}-linux-x86_64 /usr/bin/raiden
-RUN setcap 'cap_net_bind_service=+ep' /usr/bin/raiden
 
 ARG ALPINE_GLIBC_PACKAGE_VERSION="2.29-r0"
 RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases/download" && \
@@ -42,12 +46,8 @@ RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases
         "$ALPINE_GLIBC_BIN_PACKAGE_FILENAME" \
         "$ALPINE_GLIBC_I18N_PACKAGE_FILENAME"
 
-RUN addgroup -S raiden && adduser -S raiden -G raiden
-USER raiden
-WORKDIR /home/raiden
-RUN mkdir /home/raiden/keystore
+RUN mkdir -p /home/.raiden/keystore
+WORKDIR /root/.raiden
 
 COPY init.sh /usr/bin
 CMD ["init.sh"]
-
-
