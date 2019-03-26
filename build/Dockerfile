@@ -47,7 +47,7 @@ USER raiden
 WORKDIR /home/raiden
 RUN mkdir /home/raiden/keystore
 
-COPY init.sh .
-CMD ["./init.sh"]
+COPY init.sh /usr/bin
+CMD ["init.sh"]
 
 

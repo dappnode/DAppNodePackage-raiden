@@ -1,9 +1,6 @@
 #!/bin/sh
 
-# Add capabilities to bind port 80
-#setcap 'cap_net_bind_service=+ep' /usr/bin/raiden
-
-if [ ! -z $RAIDEN_ADDRESS ] && [ -f ./password ] && [ -z ! "$(ls -A /home/raiden/keystore)" ]; then
+if [ ! -z $RAIDEN_ADDRESS ] && [ -f ./password ] && [ `ls -1A keystore | wc -l` -gt 0 ]; then
     /usr/bin/raiden --accept-disclaimer --environment-type production --api-address 0.0.0.0:80 --eth-rpc-endpoint $RAIDEN_RPC --keystore-path /home/raiden/keystore --address $RAIDEN_ADDRESS --password-file password
 else
     echo "########################################################"
@@ -14,5 +11,5 @@ else
     echo "## 3: Set the corresponding \$RAIDEN_ADDRESS variable  ##"
     echo "## 4: Restart the package                             ##"
     echo "########################################################"
-    while true; do sleep 20; done
+    while true; do sleep 2; done
 fi
