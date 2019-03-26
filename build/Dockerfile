@@ -2,12 +2,14 @@ FROM alpine:latest
 
 ENV RAIDEN_VERSION 0.100.2
 ENV LANG en_US.UTF-8
+ENV RAIDEN_RPC http://my.ethchain.dnp.dappnode.eth:8545
 
-RUN apk update && apk add --no-cache wget
+RUN apk update && apk add --no-cache wget libcap
 
 RUN wget https://github.com/raiden-network/raiden/releases/download/v${RAIDEN_VERSION}/raiden-v${RAIDEN_VERSION}-linux-x86_64.tar.gz \
     -qO- | tar -C /usr/bin -xzvf -
 RUN mv /usr/bin/raiden-v${RAIDEN_VERSION}-linux-x86_64 /usr/bin/raiden
+RUN setcap 'cap_net_bind_service=+ep' /usr/bin/raiden
 
 ARG ALPINE_GLIBC_PACKAGE_VERSION="2.29-r0"
 RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases/download" && \
@@ -45,6 +47,7 @@ USER raiden
 WORKDIR /home/raiden
 RUN mkdir /home/raiden/keystore
 
-CMD raiden --accept-disclaimer --environment-type production --api-address 0.0.0.0:80 --eth-rpc-endpoint http://my.ethchain.dnp.dappnode.eth:8545 --keystore-path /home/raiden/keystore --address $RAIDEN_ADDRESS --password-file password
+COPY init.sh .
+CMD ["./init.sh"]
 
 
