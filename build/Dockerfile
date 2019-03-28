@@ -6,10 +6,8 @@ ENV RAIDEN_ACCEPT_DISCLAIMER=True
 ENV RAIDEN_ENVIRONMENT_TYPE=production
 ENV RAIDEN_API_ADDRESS=0.0.0.0:80
 ENV RAIDEN_ETH_RPC_ENDPOINT=http://my.ethchain.dnp.dappnode.eth:8545
-ENV RAIDEN_KEYSTORE_PATH=/root/.raiden/keystore
-ENV RAIDEN_PASSWORD_FILE=/root/.raiden/password
 
-RUN apk update && apk add --no-cache wget
+RUN apk update && apk add --no-cache wget expect
 
 RUN wget https://github.com/raiden-network/raiden/releases/download/v${RAIDEN_VERSION}/raiden-v${RAIDEN_VERSION}-linux-x86_64.tar.gz \
     -qO- | tar -C /usr/bin -xzvf -
@@ -46,7 +44,7 @@ RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases
         "$ALPINE_GLIBC_BIN_PACKAGE_FILENAME" \
         "$ALPINE_GLIBC_I18N_PACKAGE_FILENAME"
 
-RUN mkdir -p /home/.raiden/keystore
+RUN mkdir -p /home/.raiden
 WORKDIR /root/.raiden
 
 COPY init.sh /usr/bin
