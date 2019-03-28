@@ -14,7 +14,8 @@
       "data:/root/.raiden"
     ],
     "environment": [
-    "RAIDEN_KEYSTORE_PASSWORD="
+    "RAIDEN_KEYSTORE_PASSWORD=",
+    "RAIDEN_ADDRESS="
     ],
     "keywords": [
       "Raiden",
