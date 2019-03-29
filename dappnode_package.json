@@ -11,9 +11,10 @@
     "restart": "always",
     "ports": [],
     "volumes": [
-      "data:/home/raiden/"
+      "data:/root/.raiden"
     ],
     "environment": [
+    "RAIDEN_KEYSTORE_PASSWORD=",
     "RAIDEN_ADDRESS="
     ],
     "keywords": [
