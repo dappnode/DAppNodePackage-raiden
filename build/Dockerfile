@@ -7,7 +7,7 @@ ENV RAIDEN_ENVIRONMENT_TYPE=production
 ENV RAIDEN_API_ADDRESS=0.0.0.0:80
 ENV RAIDEN_ETH_RPC_ENDPOINT=http://my.ethchain.dnp.dappnode.eth:8545
 
-RUN apk update && apk add --no-cache wget expect
+RUN apk update && apk add --no-cache wget
 
 RUN wget https://github.com/raiden-network/raiden/releases/download/v${RAIDEN_VERSION}/raiden-v${RAIDEN_VERSION}-linux-x86_64.tar.gz \
     -qO- | tar -C /usr/bin -xzvf -
