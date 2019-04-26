@@ -1,5 +1,5 @@
 {
-  "name": "raiden.public.dappnode.eth",
+  "name": "raiden.dnp.dappnode.eth",
   "version": "0.0.1",
   "description": "The Raiden Network is an off-chain scaling solution, enabling near-instant, low-fee and scalable payments.",
   "avatar": "/ipfs/QmaqgLyZXpETXYzhWcebNJnh6vPs4WqiCJbZY3EY1fXqer",
@@ -14,15 +14,28 @@
       "data:/root/.raiden"
     ],
     "environment": [
-    "RAIDEN_KEYSTORE_PASSWORD=",
-    "RAIDEN_ADDRESS="
+      "RAIDEN_KEYSTORE_PASSWORD=",
+      "RAIDEN_ADDRESS="
     ],
     "keywords": [
       "Raiden",
       "Ethereum"
     ]
   },
-  "author": "vdo",
-  "license": "",
+  "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
+  "contributors": [
+    "Abel Boldú (@vdo)"
+  ],
+  "homepage": {
+    "homepage": "https://github.com/dappnode/DAppNodePackage-raiden#readme"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dappnode/DAppNodePackage-raiden.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dappnode/DAppNodePackage-raiden/issues"
+  },
+  "license": "MIT License",
   "dependencies": {}
 }

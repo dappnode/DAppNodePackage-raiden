@@ -1,5 +1,5 @@
 version: '3.4'
 services:
-    raiden.public.dappnode.eth:
-        image: 'raiden.public.dappnode.eth:0.0.1'
+    raiden.dnp.dappnode.eth:
+        image: 'raiden.dnp.dappnode.eth:0.0.1'
         build: ./build
