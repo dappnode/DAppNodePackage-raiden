@@ -15,7 +15,8 @@
     ],
     "environment": [
       "RAIDEN_KEYSTORE_PASSWORD=",
-      "RAIDEN_ADDRESS="
+      "RAIDEN_ADDRESS=",
+      "EXTRA_OPTS=--disable-debug-logfile"
     ],
     "keywords": [
       "Raiden",
