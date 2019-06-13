@@ -1,6 +1,6 @@
 {
   "name": "raiden.dnp.dappnode.eth",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The Raiden Network is an off-chain scaling solution, enabling near-instant, low-fee and scalable payments.",
   "avatar": "/ipfs/QmaqgLyZXpETXYzhWcebNJnh6vPs4WqiCJbZY3EY1fXqer",
   "type": "service",
