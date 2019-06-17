@@ -49,7 +49,8 @@ Raiden is available in DAppNode in mainet and the different testnets, but in mai
 In mainet you will have to install the mainet package and  take into account that your Ethereum node should be running with the same flags as in testnet.
 
  ```--rpcapi eth,net,web3,txpool```  and the flag ```--no-ancient-blocks``` should not be activated. 
-
+ 
+ ![](https://i.imgur.com/X1bJCJF.png)
 
 If you do not have a keystore file, you can create a new wallet in My Ether Wallet or MyCrypto, and then fund it with a bit of ETH / WETH (only token supported in mainet at the moment). 
 
