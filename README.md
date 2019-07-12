@@ -46,9 +46,9 @@ Raiden is available in DAppNode in mainet and the different testnets, but in mai
 
 ## Running Raiden in mainet
 
-In mainet you will have to install the mainet package and  take into account that your Ethereum node should be running with the same flags as in testnet.
+In mainet you will have to install the mainet package and  take into account that your Ethereum node should be running with this flags.
 
- ```--rpcapi eth,net,web3,txpool```  and the flag ```--no-ancient-blocks``` should not be activated. 
+ ```--jsonrpc-apis=eth,net,web3,parity```  and the flag ```--no-ancient-blocks``` should not be activated. 
  
  ![](https://i.imgur.com/X1bJCJF.png)
 
@@ -66,7 +66,9 @@ Go to packages and enter the Raiden  package
 ![](https://i.imgur.com/p0IVsPn.png)
 
 
-* In the "File manager" field upload your keystore file  (please note that in  the current version, WETH is the only token supported)
+* In the "File manager" tab upload your keystore file  (please note that in  the current version, WETH is the only token supported)
+
+![](https://i.imgur.com/29GFRHk.png)
 
 No need to select any path in this case, you can leave this field as it is, and the keystore file will be uploaded in the correct path once you hit the "Upload" button.
 
@@ -90,7 +92,7 @@ Now you can access the [Raiden UI](http://raiden.dappnode)  and start doing inst
 
 ## Backup of your account
 
-When you install the Raiden mainet package the keystoore is stored in your DAppNNode.
+When you install the Raiden mainet package the keystore is stored in your DAppNNode.
 
 If you want to have a backup of that account follow these steps.
 
@@ -117,7 +119,7 @@ If you have different keystores with WETH and you want to switch the account, yo
 Your keystore is now uploaded. Now we need to tell the package that you want to use that keystore
 
 * Go to Environment Variables
-* Type the password of your newly uploaded keystore (address is not needed, it will be automatically detected)
+* Type the password of your newly uploaded keystore (address is not necessary, it will be automatically detected)
 * Hit update environment variables
 
 ![](https://i.imgur.com/sjKiw1s.png)
