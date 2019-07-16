@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "upstreamVersion": "0.100.3",
   "shortDescription": "Fast, cheap, scalable token transfers for Ethereum",
-  "description": "The Raiden Network is an off-chain scaling solution, enabling near-instant, low-fee and scalable payments.",
+  "description": "The Raiden Network is an off-chain scaling solution, enabling near-instant, low-fee, and scalable payments. It’s complementary to the Ethereum blockchain and works with any ERC20 compatible token. \n\n\n **Getting started** \n\n Once you have installed the Raiden DAppNode Package you **must** upload your own keystore. Go to this [getting started guide](https://github.com/dappnode/DAppNodePackage-raiden) to learn how to do so.  \n\n\n All set? Check out the [documentation and introductory guides](https://raiden-network.readthedocs.io/en/stable/#how-to-get-started) to quickly get started doing payments.",
   "avatar": "/ipfs/QmaqgLyZXpETXYzhWcebNJnh6vPs4WqiCJbZY3EY1fXqer",
   "type": "service",
   "image": {
@@ -39,7 +39,8 @@
   "keywords": ["Raiden", "Raiden Network", "Payment Channels", "Ethereum", "Blockchain"],
   "links": {
     "homepage": "https://github.com/dappnode/DAppNodePackage-raiden#readme",
-    "ui": "http://raiden.dappnode"
+    "ui": "http://raiden.dappnode",
+    "api": "http://raiden.dappnode:5001/api/"
   },
   "repository": {
     "type": "git",
