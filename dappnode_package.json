@@ -19,6 +19,45 @@
       "EXTRA_OPTS=--disable-debug-logfile"
     ]
   },
+  "setupSchema": {
+    "description": "Raiden setup wizard https://github.com/dappnode/DAppNodePackage-raiden\n\nIn mainet you will have to install the mainet package and take into account that your Ethereum node should be running with this flags.\n\n`--jsonrpc-apis=eth,net,web3,parity` and the flag `--no-ancient-blocks` should not be activated.\n\nIf you do not have a keystore file, you can create a new wallet in My Ether Wallet or MyCrypto, and then fund it with a bit of ETH / WETH (only token supported in mainet at the moment). Please be aware that the online creation of wallets via a keystore file is not such a good security practice. This can be mitigated if you download the MyCrypto local app and create the wallet offline. Do not leave significant value in wallets created through this method.",
+    "type": "object",
+    "required": [
+      "keystore",
+      "keystorePassword",
+      "keystoreAddress"
+    ],
+    "properties": {
+      "keystore": {
+        "target": {
+          "type": "fileUpload",
+          "path": "/usr/src/app"
+        },
+        "type": "string",
+        "format": "data-url",
+        "title": "Keystore",
+        "description": "Keystore with the account to be used in your Raiden node"
+      },
+      "keystorePassword": {
+        "target": {
+          "type": "environment",
+          "name": "RAIDEN_KEYSTORE_PASSWORD"
+        },
+        "type": "string",
+        "title": "Keystore password",
+        "description": "Password of the uploaded keystore"
+      },
+      "keystoreAddress": {
+        "target": {
+          "type": "environment",
+          "name": "RAIDEN_ADDRESS"
+        },
+        "type": "string",
+        "title": "Keystore address",
+        "description": "Address of the uploaded keystore"
+      }
+    }
+  },
   "backup": [
     {
       "name": "data",
