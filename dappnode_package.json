@@ -27,7 +27,7 @@
   ],
   "warnings": {},
   "style": {
-    "featuredBackground": "linear-gradient(293deg, #000000, #313131)",
+    "featuredBackground": "linear-gradient(67deg, #000000, #2f3c3e)",
     "featuredColor": "white",
     "featuredAvatarFilter": "invert(1)"
   },
