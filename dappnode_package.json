@@ -8,8 +8,8 @@
   "type": "service",
   "image": {
     "path": "raiden.dnp.dappnode.eth_0.0.2.tar.xz",
-    "hash": "/ipfs/Qmawv2yb88CkWZgZxxSZgby11RYYz3V6j4ubhp21hw6EFN",
-    "size": 25147272,
+    "hash": "/ipfs/QmPpjC2QwgRNEspxRnBc2HEyJ39UhCQb9gxqC9KTbtjm7w",
+    "size": 25026064,
     "restart": "always",
     "ports": [],
     "volumes": [
@@ -22,7 +22,7 @@
     ]
   },
   "setupSchema": {
-    "description": "Raiden setup wizard https://github.com/dappnode/DAppNodePackage-raiden\n\nIn mainet you will have to install the mainet package and take into account that your Ethereum node should be running with this flags.\n\n`--jsonrpc-apis=eth,net,web3,parity` and the flag `--no-ancient-blocks` should not be activated.\n\nIf you do not have a keystore file, you can create a new wallet in My Ether Wallet or MyCrypto, and then fund it with a bit of ETH / WETH (only token supported in mainet at the moment). Please be aware that the online creation of wallets via a keystore file is not such a good security practice. This can be mitigated if you download the MyCrypto local app and create the wallet offline. Do not leave significant value in wallets created through this method.",
+    "description": "Raiden setup wizard https://github.com/dappnode/DAppNodePackage-raiden\n\nThis is the package for mainnet network. Your Ethereum node should be running with these flags:\n\n`--jsonrpc-apis=eth,net,web3,parity`\n\nAlso, the flag `--no-ancient-blocks` should **not** be activated.\n\nIf you don't have a keystore file, you can create a new wallet in My Ether Wallet or MyCrypto, fund it with a bit of ETH / WETH (only token supported in mainnet at the moment) and export the keystore file. Please be aware the **online** creation of wallets via a keystore file is not a good security practice. This can be mitigated if downloading the MyCrypto local app and creating the wallet **offline**. Do not leave significant value in wallets created through this method.",
     "type": "object",
     "required": [
       "keystore",
