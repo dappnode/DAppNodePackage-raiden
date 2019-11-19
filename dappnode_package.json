@@ -4,15 +4,17 @@
   "upstreamVersion": "0.100.4",
   "shortDescription": "Fast, cheap, scalable token transfers for Ethereum",
   "description": "The Raiden Network is an off-chain scaling solution, enabling near-instant, low-fee, and scalable payments. It’s complementary to the Ethereum blockchain and works with any ERC20 compatible token. \n\n\n **Getting started** \n\n Once you have installed the Raiden DAppNode Package you **must** upload your own keystore. Go to this [getting started guide](https://github.com/dappnode/DAppNodePackage-raiden) to learn how to do so.  \n\n\n All set? Check out the [documentation and introductory guides](https://raiden-network.readthedocs.io/en/stable/#how-to-get-started) to quickly get started doing payments.",
-  "avatar": "/ipfs/QmaqgLyZXpETXYzhWcebNJnh6vPs4WqiCJbZY3EY1fXqer",
+  "avatar": "/ipfs/QmSaGNUDouiSvKXpEEFktqLZxBKaY3VeyhNnLat8oiGz67",
   "type": "service",
   "image": {
-    "path": "",
-    "hash": "",
-    "size": "",
+    "path": "raiden.dnp.dappnode.eth_0.0.2.tar.xz",
+    "hash": "/ipfs/Qmawv2yb88CkWZgZxxSZgby11RYYz3V6j4ubhp21hw6EFN",
+    "size": 25147272,
     "restart": "always",
     "ports": [],
-    "volumes": ["data:/root/.raiden"],
+    "volumes": [
+      "data:/root/.raiden"
+    ],
     "environment": [
       "RAIDEN_KEYSTORE_PASSWORD=",
       "RAIDEN_ADDRESS=",
@@ -29,32 +31,50 @@
     ],
     "properties": {
       "keystore": {
-        "target": {
-          "type": "fileUpload",
-          "path": "/usr/src/app"
-        },
         "type": "string",
         "format": "data-url",
         "title": "Keystore",
         "description": "Keystore with the account to be used in your Raiden node"
       },
+      "keystoreAddress": {
+        "type": "string",
+        "title": "Keystore address",
+        "description": "Address of the uploaded keystore",
+        "pattern": "^0x[a-fA-F0-9]{40}$"
+      },
       "keystorePassword": {
-        "target": {
-          "type": "environment",
-          "name": "RAIDEN_KEYSTORE_PASSWORD"
-        },
         "type": "string",
         "title": "Keystore password",
         "description": "Password of the uploaded keystore"
-      },
-      "keystoreAddress": {
-        "target": {
-          "type": "environment",
-          "name": "RAIDEN_ADDRESS"
-        },
-        "type": "string",
-        "title": "Keystore address",
-        "description": "Address of the uploaded keystore"
+      }
+    }
+  },
+  "setupTarget": {
+    "keystore": {
+      "type": "fileUpload",
+      "path": "/root/.raiden/keystore.json"
+    },
+    "keystoreAddress": {
+      "type": "environment",
+      "name": "RAIDEN_ADDRESS"
+    },
+    "keystorePassword": {
+      "type": "environment",
+      "name": "RAIDEN_KEYSTORE_PASSWORD"
+    }
+  },
+  "setupUiJson": {
+    "ui:order": [
+      "keystore",
+      "keystoreAddress",
+      "keystorePassword"
+    ],
+    "keystorePassword": {
+      "ui:widget": "password"
+    },
+    "keystoreAddress": {
+      "errorMessages": {
+        "pattern": "Must be a valid address (0x1fd16a...)"
       }
     }
   },
@@ -71,8 +91,12 @@
     "featuredAvatarFilter": "invert(1)"
   },
   "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
-  "contributors": ["Abel Boldú (@vdo)"],
-  "categories": ["Payment channels"],
+  "contributors": [
+    "Abel Boldú (@vdo)"
+  ],
+  "categories": [
+    "Payment channels"
+  ],
   "keywords": [
     "Raiden",
     "Raiden Network",
