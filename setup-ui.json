@@ -1,0 +1,6 @@
+{
+  "ui:order": ["keystore", "*"],
+  "password": {
+    "ui:widget": "password"
+  }
+}

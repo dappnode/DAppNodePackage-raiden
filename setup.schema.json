@@ -1,0 +1,23 @@
+{
+  "description": "# DAppNode Raiden Wizard\n\nTo start this package you need to provide a Ethereum keystore file\n\n",
+  "type": "object",
+  "properties": {
+    "keystore": {
+      "type": "string",
+      "format": "data-url",
+      "title": "Raiden Keystore file",
+      "description": "Your Keystore/JSON file containing the key that you want to use for this node"
+    },
+    "password": {
+      "type": "string",
+      "title": "Password",
+      "description": "Password to unlock the keystore"
+    },
+    "rpc-endpoint": {
+      "type": "string",
+      "title": "RPC Endpoint",
+      "description": "Raiden will use your local Ethereum node by default."
+    }
+  },
+  "required": ["keystore", "password"]
+}

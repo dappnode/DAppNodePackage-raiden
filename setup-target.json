@@ -1,0 +1,14 @@
+{
+  "keystore": {
+    "type": "fileUpload",
+    "path": "/root/.raiden/keystore.json"
+  },
+  "password": {
+    "type": "environment",
+    "name": "RAIDEN_KEYSTORE_PASSWORD"
+  },
+  "rpc-endpoint": {
+    "type": "environment",
+    "name": "RAIDEN_RPC_ENDPOINT"
+  }
+}

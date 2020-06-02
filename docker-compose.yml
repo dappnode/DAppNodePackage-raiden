@@ -1,5 +1,18 @@
 version: '3.4'
 services:
-    raiden.dnp.dappnode.eth:
-        image: 'raiden.dnp.dappnode.eth:0.0.1'
-        build: ./build
+  raiden.dnp.dappnode.eth:
+    image: 'raiden.dnp.dappnode.eth:0.0.2'
+    build:
+      context: ./build
+      dockerfile: Dockerfile
+      args:
+        - RAIDEN_VERSION=1.0.0
+    volumes:
+      - 'data:/root/.raiden'
+    restart: always
+    environment:
+      - RAIDEN_KEYSTORE_PASSWORD=
+      - RAIDEN_NETWORK_ID=mainnet
+      - 'RAIDEN_RPC_ENDPOINT=http://fullnode.dappnode:8545'
+volumes:
+  data: {}

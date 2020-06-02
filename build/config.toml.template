@@ -1,0 +1,11 @@
+environment-type = "production"
+keystore-path = "/root/.raiden/"
+address = "${RAIDEN_ADDRESS}"
+network-id = "${RAIDEN_NETWORK_ID}"
+accept-disclaimer = true
+eth-rpc-endpoint = "${RAIDEN_RPC_ENDPOINT}"
+password-file = "/root/.raiden/.password"
+routing-mode = "pfs"
+enable-monitoring = true
+api-address = "0.0.0.0:80"
+
