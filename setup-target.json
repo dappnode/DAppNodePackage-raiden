@@ -10,5 +10,9 @@
   "rpc-endpoint": {
     "type": "environment",
     "name": "RAIDEN_RPC_ENDPOINT"
+  },
+  "network-id": {
+    "type": "environment",
+    "name": "RAIDEN_NETWORK_ID"
   }
 }

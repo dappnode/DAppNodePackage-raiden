@@ -11,7 +11,7 @@ if [ ! -f "${KEYSTORE_FILE}" ]; then
     echo "Keystore file not present!"
     sleep_forever
 fi
-RAIDEN_NETWORK_ID=mainnet
+
 # Convert keystore address to EIP-55 format
 RAW_ADDRESS=$(cat ${KEYSTORE_FILE} | jq -r .address)
 RAIDEN_ADDRESS=$(echo -n ${RAW_ADDRESS} | eip55-checksum)
