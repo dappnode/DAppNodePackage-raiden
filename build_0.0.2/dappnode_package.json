@@ -1,0 +1,133 @@
+{
+  "name": "raiden.dnp.dappnode.eth",
+  "version": "0.0.2",
+  "upstreamVersion": "0.100.4",
+  "shortDescription": "Fast, cheap, scalable token transfers for Ethereum",
+  "description": "The Raiden Network is an off-chain scaling solution, enabling near-instant, low-fee, and scalable payments. It’s complementary to the Ethereum blockchain and works with any ERC20 compatible token. \n\n\n **Getting started** \n\n Once you have installed the Raiden DAppNode Package you **must** upload your own keystore. Go to this [getting started guide](https://github.com/dappnode/DAppNodePackage-raiden) to learn how to do so.  \n\n\n All set? Check out the [documentation and introductory guides](https://raiden-network.readthedocs.io/en/stable/#how-to-get-started) to quickly get started doing payments.",
+  "avatar": "/ipfs/QmSaGNUDouiSvKXpEEFktqLZxBKaY3VeyhNnLat8oiGz67",
+  "type": "service",
+  "image": {
+    "path": "raiden.dnp.dappnode.eth_0.0.2.tar.xz",
+    "hash": "/ipfs/QmPziKPEw9jPTYVHBYJPVQaj3M46imrvXbxRmYLx7BvUGS",
+    "size": 25148324,
+    "restart": "always",
+    "ports": [],
+    "volumes": [
+      "data:/root/.raiden"
+    ],
+    "environment": [
+      "RAIDEN_KEYSTORE_PASSWORD=",
+      "RAIDEN_ADDRESS=",
+      "EXTRA_OPTS=--disable-debug-logfile"
+    ]
+  },
+  "setupSchema": {
+    "description": "Raiden setup wizard https://github.com/dappnode/DAppNodePackage-raiden\n\nIn mainet you will have to install the mainet package and take into account that your Ethereum node should be running with this flags.\n\n`--jsonrpc-apis=eth,net,web3,parity` and the flag `--no-ancient-blocks` should not be activated.\n\nIf you do not have a keystore file, you can create a new wallet in My Ether Wallet or MyCrypto, and then fund it with a bit of ETH / WETH (only token supported in mainet at the moment). Please be aware that the online creation of wallets via a keystore file is not such a good security practice. This can be mitigated if you download the MyCrypto local app and create the wallet offline. Do not leave significant value in wallets created through this method.",
+    "type": "object",
+    "required": [
+      "keystore",
+      "keystorePassword",
+      "keystoreAddress"
+    ],
+    "properties": {
+      "keystore": {
+        "type": "string",
+        "format": "data-url",
+        "title": "Keystore",
+        "description": "Keystore with the account to be used in your Raiden node"
+      },
+      "keystoreAddress": {
+        "type": "string",
+        "title": "Keystore address",
+        "description": "Address of the uploaded keystore",
+        "pattern": "^0x[a-fA-F0-9]{40}$"
+      },
+      "keystorePassword": {
+        "type": "string",
+        "title": "Keystore password",
+        "description": "Password of the uploaded keystore"
+      },
+      "dataMountpoint": {
+        "type": "string",
+        "title": "Blockchain data mountpoint",
+        "description": "Use this option if you want to store the blockchain data in a separate drive. Make sure to have sufficient free space, the Raiden blockchain may require at least 53GB"
+      }
+    }
+  },
+  "setupTarget": {
+    "keystore": {
+      "type": "fileUpload",
+      "path": "/root/.raiden/keystore.json"
+    },
+    "keystoreAddress": {
+      "type": "environment",
+      "name": "RAIDEN_ADDRESS"
+    },
+    "keystorePassword": {
+      "type": "environment",
+      "name": "RAIDEN_KEYSTORE_PASSWORD"
+    },
+    "dataMountpoint": {
+      "type": "namedVolumeMountpoint",
+      "volumeName": "data"
+    }
+  },
+  "setupUiJson": {
+    "ui:order": [
+      "keystore",
+      "keystoreAddress",
+      "keystorePassword",
+      "dataMountpoint"
+    ],
+    "keystorePassword": {
+      "ui:widget": "password"
+    },
+    "keystoreAddress": {
+      "errorMessages": {
+        "pattern": "Must be a valid address (0x1fd16a...)"
+      }
+    }
+  },
+  "backup": [
+    {
+      "name": "data",
+      "path": "/root/.raiden"
+    }
+  ],
+  "warnings": {},
+  "style": {
+    "featuredBackground": "linear-gradient(67deg, #000000, #2f3c3e)",
+    "featuredColor": "white",
+    "featuredAvatarFilter": "invert(1)"
+  },
+  "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
+  "contributors": [
+    "Abel Boldú (@vdo)"
+  ],
+  "categories": [
+    "Payment channels"
+  ],
+  "keywords": [
+    "Raiden",
+    "Raiden Network",
+    "Payment Channels",
+    "Ethereum",
+    "Blockchain"
+  ],
+  "links": {
+    "homepage": "https://github.com/dappnode/DAppNodePackage-raiden#readme",
+    "ui": "http://raiden.dappnode",
+    "api": "http://raiden.dappnode:5001/api/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dappnode/DAppNodePackage-raiden.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dappnode/DAppNodePackage-raiden/issues"
+  },
+  "disclaimer": {
+    "message": "This software is experimental, presented 'as is' and inherently carries risks. By installing it, you acknowledge that DAppNode Association has done its best to mitigate these risks and accept to waive any liability or responsibility for DAppNode in case of any shortage, discrepancy, damage, loss or destruction of any digital asset managed within this DAppNode package.\n\nThis package stores private keys, which will be stored in your DAppNode. Neither DAppNode Association nor the developers of this software can have access to your private key, nor help you recover it if you lose it. \n\nYou are solely responsible for keeping your private keys and password safe and to perform secure backups, as well as to restrict access to your computer and other equipment. To the extent permitted by applicable law, you agree to be responsible for all activities that have been conducted from your account. You must take all necessary steps to ensure that your private key, password, and recovery phrase remain confidential and secured. \n\nThis is an Alpha version of experimental open source software released as a test version under an MIT license and may contain errors and/or bugs. No guarantee or representations whatsoever is made regarding its suitability (or its use) for any purpose or regarding its compliance with any applicable laws and regulations. Use of the software is at your own risk and discretion and by using the software you acknowledge that you have read this disclaimer, understand its contents, assume all risk related thereto and hereby release, waive, discharge and covenant not to sue Brainbot Labs Establishment or any officers, employees or affiliates from and for any direct or indirect liability resulting from the use of the software as permissible by applicable laws and regulations.\n\nPrivacy Warning: Please be aware, that by using the Raiden Client, \namong others, your Ethereum address, channels, channel deposits, settlements and the Ethereum address of your channel counterparty will be stored on the Ethereum chain, i.e. on servers of Ethereum node operators and ergo are to a certain extent publicly available. The same might also be stored on systems of parties running Raiden nodes connected to the same token network. Data present in the Ethereum chain is very unlikely to be able to be changed, removed or deleted from the public arena.\n\nAlso be aware, that data on individual Raiden token transfers will be made available via the Matrix protocol to the recipient, intermediating nodes of a specific transfer as well as to the Matrix server operators."
+  },
+  "license": "MIT License"
+}
